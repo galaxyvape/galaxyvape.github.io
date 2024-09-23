@@ -81,7 +81,7 @@
         function createStar() {
             const star = document.createElement('div');
             star.className = 'star';
-            const size = Math.random() * 10 + 5; // Random size between 5 and 15px
+            const size = Math.random() * 5 + 4; // Random size between 8px
             star.style.width = `${size}px`;
             star.style.height = `${size}px`;
             star.style.top = `${Math.random() * 100}vh`;
@@ -92,7 +92,7 @@
             }, 2000);
         }
 
-        setInterval(createStar, 200); // Create a new star every 200ms
+        setInterval(createStar, 3); // Create a new star every 3ms
     </script>
 </body>
 </html>
