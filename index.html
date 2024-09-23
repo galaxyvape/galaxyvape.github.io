@@ -13,6 +13,8 @@
             background-image: url('https://media.discordapp.net/attachments/1283926060332744724/1287662727266832414/795c273cdbeb7e6e01ce037ed5ab7e36.jpg?ex=66f25cdd&is=66f10b5d&hm=f076adba17f5a49c8ddb6ce315c9ab2e725326115e41ea945d188ed812c80c4e&');
             background-size: cover;
             background-position: center;
+            position: relative;
+            overflow: hidden;
         }
         h1, h2 {
             color: red;
@@ -35,7 +37,24 @@
             -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        /* Add your additional styles here */
+        /* Stars styling */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: moveStar 10s linear infinite;
+        }
+
+        @keyframes moveStar {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100vw, 100vh);
+            }
+        }
     </style>
 </head>
 <body>
@@ -64,75 +83,21 @@
         </div>
     </section>
 
-    <svg class="background-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <circle class="star" cx="5%" cy="10%" r="1"></circle>
-        <circle class="star" cx="15%" cy="20%" r="1"></circle>
-        <circle class="star" cx="25%" cy="30%" r="1"></circle>
-        <circle class="star" cx="35%" cy="40%" r="1"></circle>
-        <circle class="star" cx="45%" cy="50%" r="1"></circle>
-        <circle class="star" cx="55%" cy="60%" r="1"></circle>
-        <circle class="star" cx="65%" cy="70%" r="1"></circle>
-        <circle class="star" cx="75%" cy="80%" r="1"></circle>
-        <circle class="star" cx="85%" cy="90%" r="1"></circle>
-        <circle class="star" cx="95%" cy="10%" r="1"></circle>
-        <circle class="star" cx="10%" cy="25%" r="1"></circle>
-        <circle class="star" cx="20%" cy="35%" r="1"></circle>
-        <circle class="star" cx="30%" cy="45%" r="1"></circle>
-        <circle class="star" cx="40%" cy="55%" r="1"></circle>
-        <circle class="star" cx="50%" cy="65%" r="1"></circle>
-        <circle class="star" cx="60%" cy="75%" r="1"></circle>
-        <circle class="star" cx="70%" cy="85%" r="1"></circle>
-        <circle class="star" cx="80%" cy="95%" r="1"></circle>
-        <circle class="star" cx="90%" cy="15%" r="1"></circle>
-        <circle class="star" cx="10%" cy="50%" r="1"></circle>
-        <circle class="star" cx="30%" cy="70%" r="1"></circle>
-        <circle class="star" cx="50%" cy="90%" r="1"></circle>
-        <circle class="star" cx="70%" cy="20%" r="1"></circle>
-        <circle class="star" cx="90%" cy="40%" r="1"></circle>
-        <circle class="star" cx="12%" cy="15%" r="1"></circle>
-        <circle class="star" cx="22%" cy="25%" r="1"></circle>
-        <circle class="star" cx="32%" cy="35%" r="1"></circle>
-        <circle class="star" cx="42%" cy="45%" r="1"></circle>
-        <circle class="star" cx="52%" cy="55%" r="1"></circle>
-        <circle class="star" cx="62%" cy="65%" r="1"></circle>
-        <circle class="star" cx="72%" cy="75%" r="1"></circle>
-        <circle class="star" cx="82%" cy="85%" r="1"></circle>
-        <circle class="star" cx="92%" cy="95%" r="1"></circle>
-        <circle class="star" cx="12%" cy="55%" r="1"></circle>
-        <circle class="star" cx="22%" cy="65%" r="1"></circle>
-        <circle class="star" cx="32%" cy="75%" r="1"></circle>
-        <circle class="star" cx="42%" cy="85%" r="1"></circle>
-        <circle class="star" cx="52%" cy="95%" r="1"></circle>
-    </svg>
-
+    <!-- Star creation via JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const smoothScrollLinks = document.querySelectorAll('.smooth-scroll');
-            smoothScrollLinks.forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(this.getAttribute('href'));
-                    const offset = (window.innerHeight - targetElement.offsetHeight) / 2;
-                    window.scrollTo({
-                        top: targetElement.getBoundingClientRect().top + window.scrollY - offset,
-                        behavior: 'smooth'
-                    });
-                });
-            });
+            const starCount = 100; // Adjust the number of stars here
+            const body = document.body;
 
-            // Make stars move around the website
-            const stars = document.querySelectorAll('.star');
-            stars.forEach(star => {
-                const randomX = Math.random() * 100 + 'vw';
-                const randomY = Math.random() * 100 + 'vh';
-                star.style.transition = 'transform 1s linear';
-                star.style.transform = `translate(${randomX}, ${randomY})`;
-                setInterval(() => {
-                    const newX = Math.random() * 100 + 'vw';
-                    const newY = Math.random() * 100 + 'vh';
-                    star.style.transform = `translate(${newX}, ${newY})`;
-                }, 1000);
-            });
+            for (let i = 0; i < starCount; i++) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.animationDuration = Math.random() * 10 + 5 + 's';
+                star.style.opacity = Math.random();
+                body.appendChild(star);
+            }
         });
     </script>
 </body>
