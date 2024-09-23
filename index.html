@@ -10,8 +10,10 @@
             font-family: 'Gotham', sans-serif;
             text-align: center;
             padding: 50px;
-            background: linear-gradient(to right, black, red);
-            overflow: hidden; /* Prevent scrollbars from showing */
+            background-image: url('https://media.discordapp.net/attachments/1283926060332744724/1287662727266832414/795c273cdbeb7e6e01ce037ed5ab7e36.jpg?ex=66f25cdd&is=66f10b5d&hm=f076adba17f5a49c8ddb6ce315c9ab2e725326115e41ea945d188ed812c80c4e&');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
             position: relative;
         }
         h1 {
@@ -38,8 +40,16 @@
         .star {
             fill: red;
             opacity: 0.5;
-            transition: transform 2s;
-            position: absolute; /* Allow for random positioning */
+            position: absolute;
+            animation: moveStar 2s infinite alternate; /* Faster animation */
+        }
+        @keyframes moveStar {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(calc(-50vw + 100%), calc(-50vh + 100%));
+            }
         }
     </style>
 </head>
@@ -107,26 +117,14 @@
                 });
             });
 
-            // Position stars randomly on load
+            // Initial positioning for stars
             const stars = document.querySelectorAll('.star');
             stars.forEach(star => {
                 const randomX = Math.random() * 100;
                 const randomY = Math.random() * 100;
-                star.style.position = 'absolute';
                 star.style.left = `${randomX}vw`;
                 star.style.top = `${randomY}vh`;
             });
-
-            // Function to animate stars
-            function animateStars() {
-                stars.forEach(star => {
-                    const randomX = Math.random() * 100;
-                    const randomY = Math.random() * 100;
-                    star.style.transform = `translate(${randomX}vw, ${randomY}vh)`;
-                });
-            }
-
-            setInterval(animateStars, 3000); // Change positions every 3 seconds
         });
     </script>
 
