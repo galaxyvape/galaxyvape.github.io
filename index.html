@@ -17,14 +17,17 @@
             cursor: pointer;
             border-radius: 50px;
             border: none;
+            background: black;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        button span {
             background: linear-gradient(to right, black, red);
-            color: transparent;
             background-clip: text;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        button:hover {
-            background-color: rgba(0, 0, 0, 0.8);
+            color: transparent;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -32,9 +35,9 @@
 
     <h1>Buttons</h1>
     
-    <button onclick="window.location.href='https://discord.gg/dJTnkwvhNp'">Config Discord</button>
-    <button onclick="window.location.href='https://m.youtube.com/@starsdotspacerblx'">Youtube</button>
-    <button onclick="window.location.href='https://7granddadpgn.github.io'">Vape Script</button>
+    <button onclick="window.location.href='https://discord.gg/dJTnkwvhNp'"><span>Config Discord</span></button>
+    <button onclick="window.location.href='https://m.youtube.com/@starsdotspacerblx'"><span>Youtube</span></button>
+    <button onclick="window.location.href='https://7granddadpgn.github.io'"><span>Vape Script</span></button>
 
 </body>
 </html>
