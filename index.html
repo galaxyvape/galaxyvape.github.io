@@ -13,8 +13,6 @@
             background-image: url('https://media.discordapp.net/attachments/1283926060332744724/1287662727266832414/795c273cdbeb7e6e01ce037ed5ab7e36.jpg?ex=66f25cdd&is=66f10b5d&hm=f076adba17f5a49c8ddb6ce315c9ab2e725326115e41ea945d188ed812c80c4e&');
             background-size: cover;
             background-position: center;
-            position: relative;
-            overflow: hidden;
         }
         h1, h2 {
             color: red;
@@ -37,24 +35,6 @@
             -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        /* Stars styling */
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            animation: moveStar 10s linear infinite;
-        }
-
-        @keyframes moveStar {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(100vw, 100vh);
-            }
-        }
     </style>
 </head>
 <body>
@@ -65,63 +45,25 @@
     <button onclick="window.location.href='https://m.youtube.com/@starsdotspacerblx'">Youtube</button>
     <button onclick="window.location.href='https://7granddadpgn.github.io'">Vape Script</button>
 
-    <section id="services" class="w-full py-20 features-section content">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12">Our Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="glassmorphism p-8 rounded-lg">
-                    <i class="fas fa-shield-alt text-6xl text-red-500 mb-4"></i>
-                    <h3 class="text-2xl font-bold text-red-500 mb-2">Anti-Cheat Bypass</h3>
-                    <p class="text-red-200">GalaxyGuard effortlessly bypasses most anti-cheat systems ensuring smooth gameplay.</p>
-                </div>
-                <div class="glassmorphism p-8 rounded-lg">
-                    <i class="fas fa-code text-6xl text-red-500 mb-4"></i>
-                    <h3 class="text-2xl font-bold text-red-500 mb-2">Advanced Modules</h3>
-                    <p class="text-red-200">Enhanced modules offering the best and most reliable cheats for Bedwars.</p>
-                </div>
-                <div class="glassmorphism p-8 rounded-lg">
-                    <i class="fas fa-play-circle text-6xl text-red-500 mb-4"></i>
-                    <h3 class="text-2xl font-bold text-red-500 mb-2">Showcases</h3>
-                    <p class="text-red-200">Detailed showcases demonstrating our config's features and capabilities.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Showcases Section -->
     <section id="showcases" class="w-full py-20 features-section content">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl text-red-500 font-bold text-center mb-12">Showcases</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="showcase-modal glassmorphism">
-                    <h3 class="text-2xl font-bold text-red-500 mb-2">Showcase 1
-                    </h3>
-                    <iframe width="100%" height="315" src="https://youtu.be/uls8ZsLSK1s?si=hWnez1Npewc6ZeOA" frameborder="0" allowfullscreen></iframe>
+                    <h3 class="text-2xl font-bold text-red-500 mb-2">Showcase 1</h3>
+                    <iframe width="100%" height="315" src="https://youtu.be/1wqH7U5UMZU?si=Y2q87dhJdm8ndYQZ" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="showcase-modal glassmorphism">
                     <h3 class="text-2xl font-bold text-red-500 mb-2">Showcase 2</h3>
-                    <iframe width="100%" height="315" src="https://youtu.be/1wqH7U5UMZU?si=BNOGuevBH_mTdydC" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" height="315" src="https://youtu.be/L32aKh0s-7Y?si=cMeA7Xsw2UO3OcBe" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="showcase-modal glassmorphism">
+                    <h3 class="text-2xl font-bold text-red-500 mb-2">Showcase 3</h3>
+                    <iframe width="100%" height="315" src="https://youtu.be/uls8ZsLSK1s?si=K5i5MEqf4A3Lnbdv" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Star creation via JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const starCount = 100; // Adjust the number of stars here
-            const body = document.body;
-
-            for (let i = 0; i < starCount; i++) {
-                let star = document.createElement('div');
-                star.classList.add('star');
-                star.style.left = Math.random() * 100 + 'vw';
-                star.style.top = Math.random() * 100 + 'vh';
-                star.style.animationDuration = Math.random() * 10 + 5 + 's';
-                star.style.opacity = Math.random();
-                body.appendChild(star);
-            }
-        });
-    </script>
 </body>
 </html>
