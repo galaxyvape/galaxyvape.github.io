@@ -17,12 +17,14 @@
             cursor: pointer;
             border-radius: 50px;
             border: none;
-            color: white;
-            background: linear-gradient(45deg, black, red); /* Black and red gradient */
-            transition: background 0.3s ease;
+            background: linear-gradient(to right, black, red);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         button:hover {
-            background: linear-gradient(45deg, red, black); /* Reversed gradient on hover */
+            background-color: rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
