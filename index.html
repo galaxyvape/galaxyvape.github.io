@@ -9,12 +9,14 @@
         body {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
-            padding: 20px;
+            margin: 0; /* Remove default margin */
             background-image: url('https://media.discordapp.net/attachments/1283926060332744724/1287662727266832414/795c273cdbeb7e6e01ce037ed5ab7e36.jpg?ex=66f25cdd&is=66f10b5d&hm=f076adba17f5a49c8ddb6ce315c9ab2e725326115e41ea945d188ed812c80c4e&');
             background-size: cover;
             background-position: center;
-            overflow: hidden;
             position: relative;
+            height: auto;
+            min-height: 100vh;
+            overflow-y: auto;
         }
         body::before {
             content: '';
@@ -59,7 +61,17 @@
             100% { transform: translate(calc(100vw - 10px), calc(100vh - 10px)); opacity: 0; }
         }
         section {
-            padding: 40px 0;
+            padding: 20px 0; /* Reduced padding */
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
     </style>
 </head>
@@ -74,7 +86,7 @@
 
     <section id="showcases" class="features-section">
         <h2 class="text-4xl text-red-500 font-bold text-center mb-12">Showcases</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid gap-8">
             <div class="showcase-modal glassmorphism">
                 <h3 class="text-2xl font-bold text-red-500 mb-2">Showcase 1</h3>
                 <iframe width="100%" height="315" src="https://youtube.com/embed/1wqH7U5UMZU?si=Y2q87dhJdm8ndYQZ" frameborder="0" allowfullscreen></iframe>
@@ -105,7 +117,7 @@
             }, 2000);
         }
 
-        setInterval(createStar, 1000); // Create a new star every second
+        setInterval(createStar, 400); // Create a new star every 400 milliseconds
     </script>
 </body>
 </html>
