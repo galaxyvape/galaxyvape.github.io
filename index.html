@@ -106,42 +106,47 @@
             font-weight: bold;
             text-shadow: 0 0 30px rgba(255, 255, 0, 1), 0 0 50px rgba(255, 255, 0, 0.5);
             position: absolute;
-            top: 50%;
+            top: 20%; /* Adjusted to position higher */
             transform: translateY(-50%);
             text-transform: uppercase;
+        }
+        .hidden {
+            display: none; /* Class to hide content initially */
         }
     </style>
 </head>
 <body>
 
+    <div class="message">JUST A MOMENT...</div>
+    
     <h1>GALAXYGUARD</h1>
     <h2>MADE BY STARS.SPACE</h2>
-    
-    <div class="message">JUST A MOMENT...</div>
 
-    <div>
-        <button onclick="window.location.href='https://discord.gg/dJTnkwvhNp'">CONFIG DISCORD</button>
-        <button onclick="window.location.href='https://m.youtube.com/@starsdotspacerblx'">YOUTUBE</button>
-        <button onclick="window.location.href='https://7granddadpgn.github.io'">VAPE SCRIPT</button>
-    </div>
-
-    <section id="showcases" class="features-section">
-        <h2>SHOWCASES</h2>
-        <div class="grid gap-8">
-            <div class="showcase-modal glassmorphism">
-                <h3>SHOWCASE 1</h3>
-                <iframe width="100%" height="315" src="https://youtube.com/embed/1wqH7U5UMZU?si=Y2q87dhJdm8ndYQZ" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="showcase-modal glassmorphism">
-                <h3>SHOWCASE 2</h3>
-                <iframe width="100%" height="315" src="https://youtube.com/embed/L32aKh0s-7Y?si=cMeA7Xsw2UO3OcBe" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="showcase-modal glassmorphism">
-                <h3>SHOWCASE 3</h3>
-                <iframe width="100%" height="315" src="https://youtube.com/embed/uls8ZsLSK1s?si=K5i5MEqf4A3Lnbdv" frameborder="0" allowfullscreen></iframe>
-            </div>
+    <div class="hidden" id="main-content">
+        <div>
+            <button onclick="window.location.href='https://discord.gg/dJTnkwvhNp'">CONFIG DISCORD</button>
+            <button onclick="window.location.href='https://m.youtube.com/@starsdotspacerblx'">YOUTUBE</button>
+            <button onclick="window.location.href='https://7granddadpgn.github.io'">VAPE SCRIPT</button>
         </div>
-    </section>
+
+        <section id="showcases" class="features-section">
+            <h2>SHOWCASES</h2>
+            <div class="grid gap-8">
+                <div class="showcase-modal glassmorphism">
+                    <h3>SHOWCASE 1</h3>
+                    <iframe width="100%" height="315" src="https://youtube.com/embed/1wqH7U5UMZU?si=Y2q87dhJdm8ndYQZ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="showcase-modal glassmorphism">
+                    <h3>SHOWCASE 2</h3>
+                    <iframe width="100%" height="315" src="https://youtube.com/embed/L32aKh0s-7Y?si=cMeA7Xsw2UO3OcBe" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="showcase-modal glassmorphism">
+                    <h3>SHOWCASE 3</h3>
+                    <iframe width="100%" height="315" src="https://youtube.com/embed/uls8ZsLSK1s?si=K5i5MEqf4A3Lnbdv" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer>
         &copy; 2024 GALAXYGUARD. ALL RIGHTS RESERVED.
@@ -163,6 +168,12 @@
         }
 
         setInterval(createStar, 400);
+
+        // Show the main content after a delay
+        setTimeout(() => {
+            document.getElementById('main-content').classList.remove('hidden'); // Show the main content
+            document.querySelector('.message').style.display = 'none'; // Hide the loading message
+        }, 2000); // 2000 milliseconds = 2 seconds
     </script>
 </body>
 </html>
