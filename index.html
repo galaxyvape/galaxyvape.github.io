@@ -4,48 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GalaxyGuard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Noto Sans', sans-serif;
-            text-align: center;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(255, 0, 0, 0.7)), 
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(255, 0, 0, 0.7)), 
                         url('https://img.freepik.com/free-photo/shades-orange-bright-scale_23-2147734160.jpg?t=st=1727489077~exp=1727492677~hmac=75eefd805366f9430622440a9fe12ae349a1b11dff28be6ae5c7b01a98f625fa&w=1060') no-repeat center center/cover;
             height: 100vh;
-            overflow-y: auto;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            overflow-y: hidden;
         }
         h1, h2 {
-            color: white;
-            text-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 30px rgba(255, 0, 0, 1);
-            letter-spacing: 2px;
             margin: 10px 0;
+            font-weight: 700;
+            text-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 0 50px rgba(255, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        h1 {
+            font-size: 4rem;
+            letter-spacing: 1px;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
         button {
             padding: 15px 30px;
-            font-size: 22px;
+            font-size: 20px;
             margin: 10px;
             cursor: pointer;
             border-radius: 50px;
             border: none;
-            background: linear-gradient(90deg, rgba(255, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+            background: linear-gradient(90deg, rgba(255, 0, 0, 1), rgba(0, 0, 0, 0.8));
             color: white;
-            font-family: 'Noto Sans', sans-serif;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
             font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            font-family: 'Montserrat', sans-serif;
         }
         button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(255, 0, 0, 0.7);
-            background: linear-gradient(90deg, rgba(255, 165, 0, 0.9), rgba(255, 0, 0, 0.8));
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 0, 0, 0.7);
+            background: linear-gradient(90deg, rgba(255, 165, 0, 1), rgba(255, 0, 0, 1));
         }
         .glassmorphism {
-            background: rgba(255, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 15px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             padding: 20px;
             margin: 10px;
             transition: transform 0.3s;
@@ -56,16 +71,19 @@
         .star {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 0, 0, 1) 0%, rgba(255, 215, 0, 0) 100%);
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, rgba(255, 0, 0, 0) 100%);
             animation: moveStar 5s infinite linear;
-            filter: blur(3px);
+            filter: blur(4px);
         }
         @keyframes moveStar {
             0% { transform: translate(0, 0); opacity: 1; }
-            100% { transform: translate(calc(100vw - 10px), calc(100vh - 10px)); opacity: 0; }
+            100% { transform: translate(calc(100vw - 20px), calc(100vh - 20px)); opacity: 0; }
         }
         section {
             padding: 20px 0;
+            width: 100%;
+            position: relative;
+            z-index: 1;
         }
         .grid {
             display: grid;
@@ -77,6 +95,14 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -87,11 +113,13 @@
     </audio>
 
     <h1>GalaxyGuard</h1>
-    <h1>Made by stars.space</h1>
+    <h2>Made by stars.space</h2>
     
-    <button onclick="window.location.href='https://discord.gg/dJTnkwvhNp'">Config Discord</button>
-    <button onclick="window.location.href='https://m.youtube.com/@starsdotspacerblx'">Youtube</button>
-    <button onclick="window.location.href='https://7granddadpgn.github.io'">Vape Script</button>
+    <div>
+        <button onclick="window.location.href='https://discord.gg/dJTnkwvhNp'">Config Discord</button>
+        <button onclick="window.location.href='https://m.youtube.com/@starsdotspacerblx'">Youtube</button>
+        <button onclick="window.location.href='https://7granddadpgn.github.io'">Vape Script</button>
+    </div>
 
     <section id="showcases" class="features-section">
         <h2>Showcases</h2>
@@ -110,6 +138,10 @@
             </div>
         </div>
     </section>
+
+    <footer>
+        &copy; 2024 GalaxyGuard. All rights reserved.
+    </footer>
 
     <script>
         function createStar() {
